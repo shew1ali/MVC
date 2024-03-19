@@ -1,5 +1,6 @@
 package ru.netology.controller;
 import org.springframework.web.bind.annotation.*;
+import ru.netology.exception.NotFoundException;
 import ru.netology.model.Post;
 import ru.netology.service.PostService;
 
@@ -31,6 +32,6 @@ public class PostController {
 
   @DeleteMapping("/{id}")
   public void removeById(@PathVariable long id) {
-    service.removeById(id);
+   service.removeById(id);
   }
 }
