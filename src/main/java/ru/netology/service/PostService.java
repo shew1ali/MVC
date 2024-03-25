@@ -28,7 +28,7 @@ public class PostService {
   }
 
   public void removeById(long id) {
-    if (repository.getById(id) != null) {
+    if (repository.all().contains(id)) {
       repository.removeById(id);
     } else {
       throw new NotFoundException();
