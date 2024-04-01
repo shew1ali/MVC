@@ -6,6 +6,8 @@ import ru.netology.model.Post;
 import ru.netology.repository.PostRepository;
 
 import java.util.Collection;
+import java.util.List;
+
 
 @Service
 public class PostService {
@@ -28,8 +30,11 @@ public class PostService {
   }
 
   public void removeById(long id) {
-    if (repository.all().contains(id)) {
-      repository.removeById(id);
+    List<Post> list = repository.all().stream()
+            .filter(x -> x.getId() == id)
+            .toList();
+    if (!list.isEmpty()){
+      list.removeAll(list);
     } else {
       throw new NotFoundException();
     }
