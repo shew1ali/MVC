@@ -34,7 +34,7 @@ public class PostService {
             .filter(x -> x.getId() == id)
             .toList();
     if (!list.isEmpty()){
-      list.removeAll(list);
+      repository.removeById(id);
     } else {
       throw new NotFoundException();
     }
